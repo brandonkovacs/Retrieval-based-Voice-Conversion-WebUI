@@ -1,10 +1,11 @@
 version: "3.8"
 services:
   rvc:
+    image: rvc/rvc-webui:latest
+    container_name: rvc-webui
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: rvc
     volumes:
       - ./weights:/app/assets/weights
       - ./opt:/app/opt
