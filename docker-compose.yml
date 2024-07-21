@@ -1,15 +1,15 @@
 version: "3.8"
 services:
   rvc:
-    image: rvc/rvc-webui:latest
+    image: brandonkovacs/rvc-webui:latest
     container_name: rvc-webui
-    build:
-      context: .
-      dockerfile: Dockerfile
     volumes:
       - ./weights:/app/assets/weights
       - ./opt:/app/opt
       - ./dataset:/app/dataset # you can use this folder in order to provide your dataset for model training
+      - ./logs:/app/logs
+    shm_size: 4gb
+    restart: always
     ports:
       - 7865:7865
     deploy:
