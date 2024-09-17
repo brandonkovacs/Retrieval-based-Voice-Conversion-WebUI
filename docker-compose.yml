@@ -12,6 +12,7 @@ services:
       - ./logs:/app/logs
     ports:
       - 7865:7865
+    shm_size: 8gb
     deploy:
       resources:
         reservations:
