@@ -9,6 +9,7 @@ services:
       - ./weights:/app/assets/weights
       - ./opt:/app/opt
       - ./dataset:/app/dataset # you can use this folder in order to provide your dataset for model training
+      - ./logs:/app/logs
     ports:
       - 7865:7865
     deploy:
