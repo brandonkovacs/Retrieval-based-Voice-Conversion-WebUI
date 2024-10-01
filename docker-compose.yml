@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      shm_size: 8gb
     container_name: rvc
     volumes:
       - ./weights:/app/assets/weights
