@@ -1,11 +1,12 @@
 version: "3.8"
 services:
   rvc:
+    image: brandonkovacs/rvc-webui:latest
     build:
       context: .
       dockerfile: Dockerfile
       shm_size: 8gb
-    container_name: rvc
+    container_name: rvc-webui
     volumes:
       - ./weights:/app/assets/weights
       - ./opt:/app/opt
