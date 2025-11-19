@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
+FROM nvidia/cuda:12.8.1-cudnn-devel-ubuntu24.04
 EXPOSE 7865
 
 # Copy files to /app
@@ -23,10 +23,10 @@ ENV PATH /opt/conda/bin:$PATH
 
 # Install base conda environment with cuda support
 RUN conda tos accept && conda config --set always_yes yes --set changeps1 no && conda update -q conda
-RUN conda install python=3.11 pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
 
 # Upgrade pip and install remaining dependencies
 RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
 RUN python3 -m pip install --no-cache-dir -r requirements-py311.txt
 
 RUN python3 tools/download_models.py
